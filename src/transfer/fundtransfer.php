@@ -33,9 +33,8 @@
         }
 
         public function fetchBanks() {
-
             $response = $this->interswitch->send(Constants::GET_ALL_BANKS_RESOURCE_URL, Constants::GET);
-
+            return $response;
         }
 
         public function validateAccount($transfer){

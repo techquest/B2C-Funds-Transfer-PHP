@@ -18,5 +18,18 @@
     $transfer = new FundTransfer($clientId,$clientSecret,Interswitch::ENV_DEV);
 
     $bankResponse = $transfer->fetchBanks();
+
+    $bankResponseCode = json_decode($bankResponse["HTTP_CODE"]);
+    $bankResponseBody = json_decode($bankResponse["RESPONSE_BODY"]);
+
+    var_dump($bankResponseCode);
+    if($bankResponseCode == 200) {
+        
+        $cbnCode = $bankResponseBody->banks[0]->cbnCode;// central bank code
+        $bankName = $bankResponseBody->banks[0]->bankName;// bank Name
+        $bankCode = $bankResponseBody->banks[0]->bankCode;// bankcode in alphabetical form: UBA, GTB, FBN
+
+        echo $cbnCode." ".$bankName." ".$bankCode."\n"; //printed response
+    }
     
 ?>
