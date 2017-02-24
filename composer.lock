@@ -4,12 +4,48 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "02cc55ed4a6947218dfad8aa1ee2c052",
-    "packages": [],
+    "content-hash": "ac68fc0cf4ce6a2e97afb938a92babe9",
+    "packages": [
+        {
+            "name": "interswitch/interswitch",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "C:/Users/ugochukwu.okeke/dev/interswitch_php",
+                "reference": "16a1a94b0888d496fcd497084a29962cd6771860",
+                "shasum": null
+            },
+            "require": {
+                "php": "^5.3.3 || ^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Interswitch\\": "src/"
+                }
+            },
+            "license": [
+                "ISC"
+            ],
+            "authors": [
+                {
+                    "name": "Lekan Omotayo",
+                    "email": "developer@interswitchgroup.com"
+                },
+                {
+                    "name": "Abiola Adebanjo",
+                    "email": "developer@interswitchgroup.com"
+                }
+            ],
+            "description": "An Interswitch SDK."
+        }
+    ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "interswitch/interswitch": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
