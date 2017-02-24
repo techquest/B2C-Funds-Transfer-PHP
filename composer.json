@@ -1,0 +1,24 @@
+{
+    "name": "interswitch/fundstransfer",
+    "type": "library",
+    "description": "An Interswitch SDK.",
+    "license": "ISC",
+    "authors": [
+      {
+	"name": "Lekan Omotayo",
+	"email": "developer@interswitchgroup.com"	
+      },
+      {
+        "name": "Ugochukwu Okeke",
+        "email": "developer@interswitchgroup.com"
+      }
+    ],
+    "require": {
+        "php": "^5.3.3 || ^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Interswitch\\": ["src/"]
+        }
+    }
+}
