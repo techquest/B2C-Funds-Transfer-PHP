@@ -3,6 +3,7 @@
     use Interswitch\Interswitch;
     use Interswitch\transfer;
     use Interswitch\transfer\constants;
+    use Interswitch\utility\utility;
     require_once __DIR__ . '/../../vendor/autoload.php';
 
     class FundTransfer {
@@ -28,10 +29,6 @@
             $this->interswitch = new Interswitch($clientId, $clientSecret, Interswitch::ENV_DEV);
         }
 
-        public function send($transfer) {
-
-
-        }
 
         public function fetchBanks() {
             $response = $this->interswitch->send(Constants::GET_ALL_BANKS_RESOURCE_URL, Constants::GET);
@@ -44,6 +41,13 @@
             $url = Constants::ACCOUNT_VALIDATION_URL_PREFIX . $bankCode . "/". Constants::ACCOUNT_VALIDATION_URL_SUFFIX . $accountNumber."/names";
             echo "url for validate account ".$url;
             $response = $this->interswitch->send($url, Constants::GET);
+            return $response;
+        }
+
+        public function send($request){
+            $mac = Utility::generateMAC($request);
+            $request->mac = $mac;
+            $response = $this->interswitch->send(Constants::TRANSFER_RESOURCE_URL, Constants::POST, json_encode($request));
             return $response;
         }
     }

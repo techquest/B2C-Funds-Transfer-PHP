@@ -13,6 +13,7 @@
         public $transferCode;
         public $termination;
         public $initiation;
+        public $mac;
 
         public function __construct(){
 
@@ -42,6 +43,15 @@
         }
         public function getAccountNumber() {
             return $this->accountNumber;
+        }
+        public function getInitiation(){
+            return $this->initiation;
+        }
+        public function getTermination(){
+            return $this->termination;
+        }
+        public function mac($val) {
+            $this->mac = $val;
         }
 
     }

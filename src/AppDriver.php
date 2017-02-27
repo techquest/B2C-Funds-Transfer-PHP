@@ -47,7 +47,7 @@
              ->destinationBankCode($cbnCode)/* mandatory:  To be gotten from the get all banks code*/
              ->toAccountNumber("0114951936") // mandatory
              ->fee("10000")// optional
-             ->requestRef("60360575603527")// mandatory
+             ->requestRef("60360625503527")// mandatory
              ->build();
 
              $validationResponse = $transfer->validateAccount($request);
@@ -58,6 +58,18 @@
              }
              else if(!$validationResponse["HTTP_CODE"] || $validationResponse["HTTP_CODE"] != 200) {
                  //account validation was not successful, continue on
+             }
+
+             $response = $transfer->send($request);
+             if($response["HTTP_CODE"] === 200) {
+                 $responseBody = json_decode($response["RESPONSE_BODY"]);
+                 $mac = $responseBody->mac;
+                 $transactionDate = $responseBody->transactionDate;
+                 $responseCode = $responseBody->responseCode;
+                 echo $mac." ".$transactionDate." ".$responseCode;
+             }
+             else if(!$response["HTTP_CODE"] || $response["HTTP_CODE"] != 200) {
+                 var_dump($response);
              }
              
     }
