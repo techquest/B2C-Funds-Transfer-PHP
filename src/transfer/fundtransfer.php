@@ -2,6 +2,7 @@
     namespace Interswitch\transfer;
     use Interswitch\Interswitch;
     use Interswitch\transfer;
+    use Interswitch\transfer\constants;
     require_once __DIR__ . '/../../vendor/autoload.php';
 
     class FundTransfer {
@@ -37,9 +38,13 @@
             return $response;
         }
 
-        public function validateAccount($transfer){
-
-
-        } 
+        public function validateAccount($request) {
+            $bankCode = $request->getBankCode();
+            $accountNumber = $request->getAccountNumber();
+            $url = Constants::ACCOUNT_VALIDATION_URL_PREFIX . $bankCode . "/". Constants::ACCOUNT_VALIDATION_URL_SUFFIX . $accountNumber."/names";
+            echo "url for validate account ".$url;
+            $response = $this->interswitch->send($url, Constants::GET);
+            return $response;
+        }
     }
 ?>
