@@ -1,0 +1,31 @@
+{
+    "name": "interswitch/fundstransfer",
+    "type": "library",
+    "description": "An Interswitch SDK.",
+    "license": "ISC",
+    "authors": [
+      {
+	"name": "Lekan Omotayo",
+	"email": "developer@interswitchgroup.com"	
+      },
+      {
+        "name": "Ugochukwu Okeke",
+        "email": "developer@interswitchgroup.com"
+      }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "http://packagist.org"
+        }
+    ],
+    "require": {
+        "php": "^5.3.3 || ^7.0",
+        "interswitch/interswitch": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Interswitch\\": ["src/"]
+        }
+    }
+}

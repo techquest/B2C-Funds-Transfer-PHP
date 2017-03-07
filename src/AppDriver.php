@@ -1,5 +1,3 @@
-#B2C-Funds-Transfer-PHP
-```
 <?php
     use Interswitch\Interswitch;
     use Interswitch\transfer\fundtransfer;
@@ -85,4 +83,3 @@
     }
     
 ?>
-```
