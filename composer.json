@@ -15,14 +15,13 @@
     ],
     "repositories": [
         {
-            "type": "path",
-            "url": "C:\\Users\\ugochukwu.okeke\\dev\\interswitch_php"
+            "type": "composer",
+            "url": "http://packagist.org"
         }
     ],
     "require": {
         "php": "^5.3.3 || ^7.0",
-        // "interswitch/interswitch": "@dev",
-        "Interswitch/Interswitch":"dev-master"
+        "interswitch/interswitch": "dev-master"
     },
     "autoload": {
         "psr-4": {
