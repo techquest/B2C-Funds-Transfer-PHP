@@ -26,7 +26,7 @@
             $this->clientId = $clientId;
             $this->clientSecret = $clientSecret;
             $this->environment = $env;
-            $this->interswitch = new Interswitch($clientId, $clientSecret, Interswitch::ENV_DEV);
+            $this->interswitch = new Interswitch($clientId, $clientSecret, $env);
         }
 
 
